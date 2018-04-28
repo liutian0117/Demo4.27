@@ -19,22 +19,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-hc-av1">
-                        <rect key="frame" x="258" y="7" width="46" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-hc-av1">
+                        <rect key="frame" x="224" y="7" width="80" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="d4w-o9-jPQ"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="cellButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wNV-KM-SKQ"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctD-Jg-z3w">
-                        <rect key="frame" x="16" y="12" width="29" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctD-Jg-z3w">
+                        <rect key="frame" x="16" y="11.5" width="193" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="ctD-Jg-z3w" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="41f-bc-ifw"/>
+                    <constraint firstAttribute="trailing" secondItem="WZh-hc-av1" secondAttribute="trailing" constant="16" id="aBw-FQ-ibD"/>
+                    <constraint firstItem="ctD-Jg-z3w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cdi-MK-Ts5"/>
+                    <constraint firstItem="WZh-hc-av1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gCR-7B-2dn"/>
+                    <constraint firstItem="WZh-hc-av1" firstAttribute="leading" secondItem="ctD-Jg-z3w" secondAttribute="trailing" constant="15" id="i2g-ue-mjx"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
