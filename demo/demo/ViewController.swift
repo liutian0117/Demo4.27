@@ -8,35 +8,35 @@
 
 import UIKit
 
+var courses = [["title":"a","btntitle":"btntitle"],["title":"","btntitle":"btntitle"],["title":"a","btntitle":"btntitle"],["title":"a","btntitle":"btntitle"],["title":"a","btntitle":"btntitle"],["title":"a","btntitle":"btntitle"]]
+
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var courses = [["title":"逆战逆战来也","btntitle":"我明白"],["title":"王牌要狂野","btntitle":"太放不开"]]
-    
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
         
-        self.tableView!.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        
         // Do any additional setup after loading the view, typically from a nib.
+        self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return courses.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier:  "TableViewCell") as! TableViewCell
+        let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
         let item = courses[indexPath.row]
         cell.cellTitle.text = item["title"]
-        cell.cellButton.setTitle(item["btntitle"], for: .normal)
-        
+        cell.cellButton.label = item["btntitle"]
         return cell
     }
     
