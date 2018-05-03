@@ -12,35 +12,54 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="demo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctD-Jg-z3w">
-                        <rect key="frame" x="16" y="11" width="288" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctD-Jg-z3w">
+                        <rect key="frame" x="16" y="20" width="184" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-hc-av1">
-                        <rect key="frame" x="204" y="6" width="100" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-hc-av1">
+                        <rect key="frame" x="224" y="15" width="80" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="dlR-c4-5Pj"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <connections>
-                            <action selector="cellButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wNV-KM-SKQ"/>
+                            <action selector="Action:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VwB-5g-RrK"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEW-m4-QZW">
+                        <rect key="frame" x="16" y="76" width="288" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="WZh-hc-av1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6eN-HB-C9f"/>
+                    <constraint firstItem="ctD-Jg-z3w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="EOE-Ud-P5l"/>
+                    <constraint firstItem="hEW-m4-QZW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="FBN-vM-3nd"/>
+                    <constraint firstItem="hEW-m4-QZW" firstAttribute="top" secondItem="ctD-Jg-z3w" secondAttribute="bottom" constant="35" id="L0V-PQ-Ag3"/>
+                    <constraint firstAttribute="trailing" secondItem="hEW-m4-QZW" secondAttribute="trailing" constant="16" id="l3M-PZ-93X"/>
+                    <constraint firstAttribute="trailing" secondItem="ctD-Jg-z3w" secondAttribute="trailing" constant="120" id="naG-iu-dtL"/>
+                    <constraint firstAttribute="trailing" secondItem="WZh-hc-av1" secondAttribute="trailing" constant="16" id="t9M-5G-twQ"/>
+                    <constraint firstItem="ctD-Jg-z3w" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yjt-Ev-DiN"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellButton" destination="WZh-hc-av1" id="LGI-SL-yVv"/>
                 <outlet property="cellTitle" destination="ctD-Jg-z3w" id="ygl-8a-l7R"/>
+                <outlet property="contentLabel" destination="hEW-m4-QZW" id="B6d-Yz-GEn"/>
             </connections>
+            <point key="canvasLocation" x="26" y="60"/>
         </tableViewCell>
     </objects>
 </document>

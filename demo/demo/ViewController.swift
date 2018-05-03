@@ -8,15 +8,26 @@
 
 import UIKit
 
-var courses = [["title":"《我们》","btntitle":"btntitle"],
-               ["title":"陈奕迅","btntitle":"btntitle"],
-               ["title":"该说的 别说了","btntitle":"btntitle"],
-               ["title":"你懂得 就够了","btntitle":"btntitle"],
-               ["title":"真的有 某一种悲哀","btntitle":"btntitle"],
-               ["title":"连泪也不能流","btntitle":"btntitle"],
-               ["title":"只能目送","btntitle":"btntitle"]]
+var courses = [["title":"《我们》","btntitle":"us","content":" "],
+               ["title":"陈奕迅","btntitle":"us","content":" "],
+               ["title":"该说的 别说了","btntitle":"us","content":"你懂得 就够了"],
+               ["title":"真的有 某一种悲哀","btntitle":"us","content":"连泪也不能流 只能目送"],
+               ["title":"我最大的遗憾","btntitle":"us","content":"是你的遗憾 与我有关"],
+               ["title":"没有句点 已经很完美了","btntitle":"us","content":"何必误会故事 没说完"],
+               ["title":"还能做什么呢","btntitle":"us","content":"我连伤感都是 奢侈的"],
+               ["title":"我一想念 你就那么近","btntitle":"us","content":"但终究 你都不能 陪我到 回不去的远方"],
+               ["title":"原来我很快乐","btntitle":"us","content":"只是不愿承认"],
+               ["title":"在我怀疑世界时","btntitle":"us","content":"你给过我答案"],
+               ["title":"我最大的遗憾","btntitle":"us","content":"是你的遗憾 与我有关"],
+               ["title":"没有句点 已经很完美了","btntitle":"us","content":"何必误会故事 没说完"],
+               ["title":"还能做什么呢","btntitle":"us","content":"我连伤感都是 奢侈的"],
+               ["title":"我一想念 你就那么近","btntitle":"us","content":"但终究 你都不能 陪我到 回不去的远方"],
+               ["title":"原来我很快乐","btntitle":"us","content":"只是不愿承认"],
+               ["title":"在我怀疑世界时","btntitle":"us","content":"你给过我答案"],
+               ["title":"我感觉到幸福","btntitle":"us","content":"是看见你幸福"],
+               ["title":"曾经亲手把时间变慢","btntitle":"end","content":"可惜我们没有等 我们"]]
 
-var selectedCellIndexPath:IndexPath!
+var selectedCellIndexPaths:[IndexPath] = []
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -27,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        
+        self.view.addSubview(self.tableView!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,29 +56,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
-        cell.cellTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        let textview = UITextView(frame: CGRect.zero)
-        textview.translatesAutoresizingMaskIntoConstraints = false
-        textview.textColor = UIColor.red
-        textview.text = "创建各单元显示内容(创建参数indexPath指定的单元,UIDatePicker是一个控制器类,封装了UIPickerView,但是他是UIControl的子类"
         let item = courses[indexPath.row]
+        let textview:UILabel = cell.contentLabel
+        textview.translatesAutoresizingMaskIntoConstraints = false
+        textview.textColor = UIColor.black
+        textview.text = item["content"]
         cell.contentView.addSubview(textview)
         cell.cellTitle.text = item["title"]
         cell.cellButton.setTitle(item["btntitle"], for: .normal)
+        //自动遮罩不可见区域，超出的不显示
+        cell.layer.masksToBounds = true
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
-        selectedCellIndexPath = indexPath
+        if let index = selectedCellIndexPaths.index(of: indexPath){
+            selectedCellIndexPaths.remove(at: index)
+        }else{
+            selectedCellIndexPaths.append(indexPath)
+        }
+        //强制改变高度
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        
     }
+    //点击单元格会引起cell高度的变化，所以要重新设置
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(selectedCellIndexPath != nil && selectedCellIndexPath == indexPath){
-            return 140
+        if selectedCellIndexPaths.contains(indexPath){
+            return 160
         }
         return 60
     }
-
+    
 }
 

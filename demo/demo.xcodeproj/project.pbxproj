@@ -14,6 +14,8 @@
 		103558F220930B11007E7FB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103558F020930B11007E7FB9 /* LaunchScreen.storyboard */; };
 		103558FB20931DA8007E7FB9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103558F920931DA8007E7FB9 /* TableViewCell.swift */; };
 		103558FC20931DA8007E7FB9 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103558FA20931DA8007E7FB9 /* TableViewCell.xib */; };
+		104E9ED5209AFDA7005B13BA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104E9ED4209AFDA7005B13BA /* TableViewController.swift */; };
+		104E9ED7209AFDBB005B13BA /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		103558F320930B11007E7FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		103558F920931DA8007E7FB9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		103558FA20931DA8007E7FB9 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		104E9ED4209AFDA7005B13BA /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				103558F320930B11007E7FB9 /* Info.plist */,
 				103558F920931DA8007E7FB9 /* TableViewCell.swift */,
 				103558FA20931DA8007E7FB9 /* TableViewCell.xib */,
+				104E9ED4209AFDA7005B13BA /* TableViewController.swift */,
+				104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 			files = (
 				103558F220930B11007E7FB9 /* LaunchScreen.storyboard in Resources */,
 				103558FC20931DA8007E7FB9 /* TableViewCell.xib in Resources */,
+				104E9ED7209AFDBB005B13BA /* TableViewController.storyboard in Resources */,
 				103558EF20930B11007E7FB9 /* Assets.xcassets in Resources */,
 				103558ED20930B0E007E7FB9 /* Main.storyboard in Resources */,
 			);
@@ -145,6 +152,7 @@
 				103558FB20931DA8007E7FB9 /* TableViewCell.swift in Sources */,
 				103558EA20930B0E007E7FB9 /* ViewController.swift in Sources */,
 				103558E820930B0E007E7FB9 /* AppDelegate.swift in Sources */,
+				104E9ED5209AFDA7005B13BA /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
