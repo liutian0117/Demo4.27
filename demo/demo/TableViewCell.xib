@@ -31,9 +31,6 @@
                             <constraint firstAttribute="width" constant="80" id="dlR-c4-5Pj"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="Action:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VwB-5g-RrK"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEW-m4-QZW">
                         <rect key="frame" x="16" y="76" width="288" height="20.5"/>

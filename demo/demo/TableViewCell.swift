@@ -18,15 +18,6 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBAction func Action(_ sender: Any) {
-        let mainSb = UIStoryboard(name: "ViewController", bundle: nil)
-        let mainVc = mainSb.instantiateViewController(withIdentifier: "ViewController")
-        let sb = UIStoryboard(name: "TableViewController", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "TableViewController")
-        mainVc.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

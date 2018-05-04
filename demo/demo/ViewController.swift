@@ -58,15 +58,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell:TableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
         let item = courses[indexPath.row]
         let textview:UILabel = cell.contentLabel
+        let button:UIButton = cell.cellButton
         textview.translatesAutoresizingMaskIntoConstraints = false
         textview.textColor = UIColor.black
         textview.text = item["content"]
         cell.contentView.addSubview(textview)
         cell.cellTitle.text = item["title"]
         cell.cellButton.setTitle(item["btntitle"], for: .normal)
+        //button点击事件：touchdown（单次触摸）、touchDownRepeat（多次点击）、towchUpInside（触摸并抬起事件）
+        button.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
         //自动遮罩不可见区域，超出的不显示
         cell.layer.masksToBounds = true
         return cell
+    }
+    //设置button点击事件
+    @objc func buttonClick(){
+        let sb = UIStoryboard(name: "TableViewController", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TableViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
