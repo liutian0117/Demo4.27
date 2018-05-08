@@ -18,6 +18,7 @@
 		104E9ED7209AFDBB005B13BA /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */; };
 		1050619F20A0261A00FB60B0 /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1050619D20A0261A00FB60B0 /* NewTableViewCell.swift */; };
 		105061A020A0261A00FB60B0 /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1050619E20A0261A00FB60B0 /* NewTableViewCell.xib */; };
+		10763CA320A168350029851C /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10763CA220A168350029851C /* TableViewHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
 		1050619D20A0261A00FB60B0 /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		1050619E20A0261A00FB60B0 /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
+		10763CA220A168350029851C /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */,
 				1050619D20A0261A00FB60B0 /* NewTableViewCell.swift */,
 				1050619E20A0261A00FB60B0 /* NewTableViewCell.xib */,
+				10763CA220A168350029851C /* TableViewHeaderView.swift */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				103558FB20931DA8007E7FB9 /* TableViewCell.swift in Sources */,
+				10763CA320A168350029851C /* TableViewHeaderView.swift in Sources */,
 				1050619F20A0261A00FB60B0 /* NewTableViewCell.swift in Sources */,
 				103558EA20930B0E007E7FB9 /* ViewController.swift in Sources */,
 				103558E820930B0E007E7FB9 /* AppDelegate.swift in Sources */,

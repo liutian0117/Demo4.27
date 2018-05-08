@@ -5,120 +5,96 @@ struct DataModel {
     var cellType: String?
 }
 
+struct contentData{
+    var name: String
+    var items: [String]
+    var showAll: Bool
+    
+    init(name: String, items: [String], showAll: Bool = false) {
+        self.name = name
+        self.items = items
+        self.showAll = showAll
+    }
+}
 
 class TableViewController: UITableViewController {
-
-    var HiddenCells:Bool = false
     
-    var tableData = [["content":"该说的 别说了"],
-                     ["content":"你懂得 就够了"]]
+    var sections = [
+        contentData(name: "Waiting For You", items: ["Jay: 你住的 巷子里 我租了一间公寓","为了想与你不期而遇","高中三年 我为什么","为什么不好好读书","没考上跟你一样的大学","我找了份工作 离你宿舍很近","当我开始学会做蛋饼","才发现你 不吃早餐","喔 你又擦肩而过","你耳机听什么 能不能告诉我"], showAll: false),
+        contentData(name: "Waiting For You", items: ["合: 躺在你学校的操场看星空","教室里的灯还亮着你没走","记得 我写给你的情书","都什么年代了","到现在我还在写着","总有一天总有一年会发现","有人默默的陪在你的身边","躺在你学校的操场看星空","也许 我不该在你的世界","当你收到情书","也代表我已经走远"], showAll: false),
+        contentData(name: "Waiting For You", items: ["Gary: 学校旁 的广场 我在这等钟声响","等你下课一起走好吗","Jay：弹着琴 唱你爱的歌 暗恋一点都不痛苦","（Gary：一点都不痛苦）","Jay：痛苦的是你","合：根本没看我"], showAll: false),
+        contentData(name: "Waiting For You", items: ["Jay：我唱这么走心 却走不进你心里","（Gary：这么走心 进你心里）","Jay：在人来人往","合：找寻着你 守护着你 不求结局","Gary：喔 你又擦肩而过","（Jay：喔 而过）","Jay：我唱告白气球 终于你回了头"], showAll: false),
+        contentData(name: "Waiting For You", items: ["合: 躺在你学校的操场看星空","教室里的灯还亮着你没走","记得 我写给你的情书","都什么年代了","到现在我还在写着","总有一天总有一年会发现","有人默默的陪在你的身边","躺在你学校的操场看星空","也许 我不该在你的世界","当你收到情书","也代表我已经走远"], showAll: false)
+    ]
     
-//    var tableData = [DataModel(title: "jhgjhgj", cellType: "cell1"),DataModel(title: "jhgjhgj", cellType: "cell1")]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         //去除尾部多余的空行
+        self.title = "等你下课"
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.register(UINib(nibName: "NewTableViewCell", bundle: nil), forCellReuseIdentifier: "NewTableViewCell")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0 && HiddenCells{
-            return 4
-        }else{
-            return 2
-        }
-       
+
+        return sections[section].items.count
     }
-    
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        通过结构体选择数组：
-//        let data = tableData[indexPath.row]
-//        if data.cellType == "cell1"{
-//
-//        }
-            let cell:NewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as! NewTableViewCell
-            let item = tableData[indexPath.row]
-            let textview:UILabel = cell.NewLabel
-            textview.text = item["content"]
-            return cell
+        //        通过结构体选择数组：
+        //        let data = tableData[indexPath.row]
+        //        if data.cellType == "cell1"{
+        //
+        //        }
+        
+        let cell:NewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell") as! NewTableViewCell
+        let item = sections[indexPath.section].items[indexPath.row]
+        let textview:UILabel = cell.NewLabel
+        textview.text = item
+        
+        return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row == 1{
-            if HiddenCells == false{
-                showHiddenCells()
-            }else{
-                killHiddenCells()
-            }
-        }
-        print(indexPath.row)
-    }
+
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 44))
-        let headerlabel:UILabel = UILabel(frame: headerView.bounds)
-        headerlabel.textColor = UIColor.white
-        headerlabel.font = UIFont.systemFont(ofSize: 16)
-        headerlabel.text = "页眉"
-        headerView.addSubview(headerlabel)
-        headerView.backgroundColor = UIColor.black
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as?
+            TableViewHeaderView ?? TableViewHeaderView(reuseIdentifier: "header")
+        headerView.headerlabel.text = sections[section].name
+        headerView.delegate = self
+        headerView.section = section
         
         return headerView
     }
+    //1添加手势如何传值 view传出来
+    //2创建新的文件 用block回调 传值
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
     }
-
-    func showHiddenCells(){
-        HiddenCells = true
-        let indexMaker = IndexPath(row: 2, section: 0)
-        let indexMaker2 = IndexPath(row: 3, section: 0)
-        tableData.append(["content":"真的有 某一种悲哀"])
-        tableData.append(["content":"连泪也不能流 只能目送"])
-        self.tableView.insertRows(at: [indexMaker,indexMaker2], with: .automatic)
-    }
-
-    func killHiddenCells(){
-        HiddenCells = false
-        let indexMaker = IndexPath(row: 2, section: 0)
-        let indexMaker2 = IndexPath(row: 3, section: 0)
-        self.tableView.deleteRows(at: [indexMaker,indexMaker2], with: .fade)
-    }
-
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 2 {
-            return 44.0
-        }else{
-            return super.tableView(tableView, heightForRowAt: indexPath)
-        }
+        return sections[indexPath.section].showAll ? 44.0 : 0
     }
-    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-        if indexPath.section == 0 && indexPath.row == 2 {
-            let newIndexPath = IndexPath(row: 0, section: indexPath.section)
-            return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
-
-        }else{
-            return super.tableView(tableView, indentationLevelForRowAt: indexPath)
-        }
+}
+extension TableViewController: TableViewHeaderDelegate{
+    func toggleSection(_ header: TableViewHeaderView, section: Int) {
+        let showAll = !sections[section].showAll
+        sections[section].showAll = showAll
+//        header.setCollapsed(showAll)
+        tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
     }
-    
-    
-    
-    
 }
 
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 
