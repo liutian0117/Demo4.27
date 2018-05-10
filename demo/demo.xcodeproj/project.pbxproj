@@ -78,9 +78,9 @@
 				103558FA20931DA8007E7FB9 /* TableViewCell.xib */,
 				104E9ED4209AFDA7005B13BA /* TableViewController.swift */,
 				104E9ED6209AFDBB005B13BA /* TableViewController.storyboard */,
+				10763CA220A168350029851C /* TableViewHeaderView.swift */,
 				1050619D20A0261A00FB60B0 /* NewTableViewCell.swift */,
 				1050619E20A0261A00FB60B0 /* NewTableViewCell.xib */,
-				10763CA220A168350029851C /* TableViewHeaderView.swift */,
 			);
 			path = demo;
 			sourceTree = "<group>";
